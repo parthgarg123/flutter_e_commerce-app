@@ -19,7 +19,7 @@ class MyDrawer extends StatelessWidget {
             child: UserAccountsDrawerHeader(accountName: Text('Parth',
               style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
               margin: EdgeInsets.zero,
-              decoration: BoxDecoration(color: Colors.amber,), 
+              decoration: BoxDecoration(color: Color(0xFFFFC107),), 
               accountEmail: Text('Parthgarg@gmail.com',
               style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
               currentAccountPicture: CircleAvatar(

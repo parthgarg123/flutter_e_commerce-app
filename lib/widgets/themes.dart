@@ -14,5 +14,11 @@ class MyTheme{
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
     brightness: Brightness.dark);
+  
+
+
+  static Color red = Color.fromARGB(255,244, 67, 54);
+  static Color blue = Color.fromARGB(255,68, 138, 255);
+  static Color cream = Color.fromARGB(255,237, 237, 233);
 
 }
