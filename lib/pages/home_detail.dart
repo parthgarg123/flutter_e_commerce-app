@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -26,31 +27,34 @@ class HomeDetailPage extends StatelessWidget {
               edge: VxEdge.top,
               child: Container(
                 width: context.screenWidth,
-                color: Colors.white,
+                color: context.theme.colorScheme.onBackground,
                 child: Column(
                   children: [
-                    "${items[index]['name']}".text.xl4.bold.make().p4(),
-                    "${items[index]['desc']}".text.lg.textStyle(context.captionStyle).make(),
+                    "${items[index]['name']}".text.color(context.theme.colorScheme.primary).xl4.bold.make().p4(),
+                    "${items[index]['desc']}".text.color(context.theme.colorScheme.onPrimary).lg.textStyle(context.captionStyle).make(),
                     10.heightBox,
                     "Diam dolores ea tempor clita elitr. Kasd amet at ea lorem amet dolor sit. Sit sit amet sadipscing sed no stet sed sed, dolore elitr sit gubergren estinvidunt ut amet, eos sit sanctus et sed lorem et stet nonumy, duo sadipscingsea dolores eirmod duo rebum sit at ut"
-                    .text
+                    .text.color(context.theme.colorScheme.onPrimary)
                     .textStyle(context.captionStyle).make().p16(),
                   ],
                 ).py64(),
               ),))
         ],
-      ).py16()),
+      )),
+      
       backgroundColor: MyTheme.cream,
       bottomNavigationBar: Container(
-        color: MyTheme.cream,
+        color: context.canvasColor,
         child: ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
                   children: [
                     "\$${items[index]['price']}".text.bold.xl4.make(),
-                    ElevatedButton(onPressed: (){}, child: "Buy".text.xl2.make(),
+                    ElevatedButton(onPressed: (){}, 
+                    child: "Buy".text.color(context.theme.colorScheme.surface).xl2.make(),
                     style: ButtonStyle(
-                      shape: MaterialStatePropertyAll(StadiumBorder())
+                      backgroundColor: MaterialStatePropertyAll(context.theme.colorScheme.onSurface),
+                      shape: MaterialStatePropertyAll(StadiumBorder()),
                     ),).wh(100, 50)
                   ],
                 ).p32(),

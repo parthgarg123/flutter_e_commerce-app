@@ -10,8 +10,8 @@ class CatalogHeader extends StatelessWidget {
     return  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              'Sasta Amazon'.text.xl5.bold.color(Colors.black).make(),
-              'Trending'.text.xl2.color(Colors.black).make(),
+              'Sasta Amazon'.text.color(context.theme.colorScheme.primary).xl5.bold.make(),
+              'Trending'.text.xl2.color(context.theme.colorScheme.primary).make(),
               Padding(padding: EdgeInsets.only(bottom: 8.0))
           ]);
   }
@@ -57,16 +57,17 @@ class CatalogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              "${items[index]['name']}".text.lg.bold.make().p4(),
-              "${items[index]['desc']}".text.textStyle(context.captionStyle).make(),
+              "${items[index]['name']}".text.color(context.theme.colorScheme.secondary).lg.bold.make().p4(),
+              "${items[index]['desc']}".text.color(context.theme.colorScheme.secondary).textStyle(context.captionStyle).make(),
               10.heightBox,
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
                 children: [
-                  "\$${items[index]['price']}".text.bold.xl.make(),
+                  "\$${items[index]['price']}".text.bold.color(context.theme.colorScheme.secondary).xl.make(),
                   ElevatedButton(onPressed: (){}, child: "Buy".text.make(),
                   style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
                     shape: MaterialStatePropertyAll(StadiumBorder())
                   ),)
                 ],
@@ -75,6 +76,6 @@ class CatalogItem extends StatelessWidget {
           ))
         ],
       )
-    ).white.rounded.square(120).make().py16();
+    ).color(context.theme.colorScheme.background).rounded.square(120).make().py16();
 }
 }
