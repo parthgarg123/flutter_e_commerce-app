@@ -20,7 +20,7 @@ class HomeDetailPage extends StatelessWidget {
         children: [
           Hero(
             tag: Key(items[index]['id'].toString()),
-            child: Image.network(items[index]['image']).centered()).h32(context),
+            child: Image.network(items[index]['image']).centered()).p12().h32(context),
             Expanded(child: VxArc(
               height: 30.0,
               arcType: VxArcType.convey,
@@ -51,9 +51,9 @@ class HomeDetailPage extends StatelessWidget {
                   children: [
                     "\$${items[index]['price']}".text.bold.xl4.make(),
                     ElevatedButton(onPressed: (){}, 
-                    child: "Buy".text.color(context.theme.colorScheme.surface).xl2.make(),
+                    child: "Buy".text.color(context.theme.colorScheme.onPrimary).semiBold.xl2.make(),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(context.theme.colorScheme.onSurface),
+                      backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
                       shape: MaterialStatePropertyAll(StadiumBorder()),
                     ),).wh(100, 50)
                   ],

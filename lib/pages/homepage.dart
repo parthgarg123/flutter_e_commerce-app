@@ -3,11 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 import 'dart:convert';
 import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
-import '../utils/routes.dart';
 import '../widgets/home_page_widgets.dart';
 
 
@@ -31,39 +31,47 @@ class _HomepageState extends State<Homepage> {
       _items=fData['products'];
     });
   }
- 
+
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
+      drawer: MyDrawer(),
       backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
-        onPressed: (){Navigator.pushNamed(context, MyRoutes.cartRoute);},
-      child: Icon(CupertinoIcons.cart),
-      backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+          onPressed: (){Navigator.pushNamed(context, MyRoutes.cartRoute);},
+        child: Icon(CupertinoIcons.cart),
+        backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
       ),
       body: SafeArea(
-        child: Container(
-          padding: Vx.m32,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CatalogHeader(),
-              FutureBuilder(
-                future: loadData(),
-                builder: (context,data){
-                  if(_items.isNotEmpty)
-                    return CatalogList(items: _items).py16().expand();
-                  else
-                    return CircularProgressIndicator().centered().expand();
-                })
-          ]),
+        child: Stack(
+          children: [
+            IconButton(onPressed: (){
+              _globalKey.currentState?.openDrawer();
+            },
+             icon: Icon(Icons.menu)),
+            Container(
+            padding: Vx.m32,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CatalogHeader(),
+                FutureBuilder(
+                  future: loadData(),
+                  builder: (context,data){
+                    if(_items.isNotEmpty)
+                      return CatalogList(items: _items).py16().expand();
+                    else
+                      return CircularProgressIndicator().centered().expand();
+                  })
+            ]),
+          ),]
         ),
       ),
-      drawer: MyDrawer(),
     );
   }
 
 
 }
-

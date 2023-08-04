@@ -52,7 +52,7 @@ class CatalogItem extends StatelessWidget {
         children: [
           Hero(
             tag: Key(items[index]['id'].toString()),
-            child: Image.network(items[index]['image']).box.p12.make().w40(context)),
+            child: Image.network(items[index]['image']).box.p12.make().w32(context)),
           Expanded(child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
