@@ -1,6 +1,11 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+
+import 'package:flutter_application_1/widgets/_add_to_cart.dart';
+import 'package:velocity_x/velocity_x.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_detail.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class CatalogHeader extends StatelessWidget {
   const CatalogHeader({super.key});
@@ -10,8 +15,8 @@ class CatalogHeader extends StatelessWidget {
     return  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              'Sasta Amazon'.text.color(context.theme.colorScheme.primary).xl5.bold.make(),
-              'Trending'.text.xl2.color(context.theme.colorScheme.primary).make(),
+              'Sasta Amazon'.text.color(context.theme.colorScheme.primary).xl5.bold.make().centered(),
+              'Trending'.text.xl2.color(context.theme.colorScheme.primary).make().centered(),
               Padding(padding: EdgeInsets.only(bottom: 8.0))
           ]);
   }
@@ -65,11 +70,7 @@ class CatalogItem extends StatelessWidget {
                 buttonPadding: EdgeInsets.zero,
                 children: [
                   "\$${items[index]['price']}".text.bold.color(context.theme.colorScheme.secondary).xl.make(),
-                  ElevatedButton(onPressed: (){}, child: "Buy".text.make(),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
-                    shape: MaterialStatePropertyAll(StadiumBorder())
-                  ),)
+                  addToCart(items: items[index])
                 ],
               ).pOnly(right: 16)
             ],
@@ -79,3 +80,34 @@ class CatalogItem extends StatelessWidget {
     ).color(context.theme.colorScheme.background).rounded.square(120).make().py16();
 }
 }
+/*
+class _addToCart extends StatefulWidget {
+  final dynamic items;
+  final int index;
+  const _addToCart({
+    Key? key,
+    required this.items, required this.index,
+  }) : super(key: key);
+
+  @override
+  State<_addToCart> createState() =>  _addToCartState();
+}
+
+class _addToCartState extends State<_addToCart> {
+  //bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(onPressed: (){
+      
+    /*  final CartModel _cart = CartModel(); 
+      _cart.add(widget.items,widget.index);
+      setState(() {
+        isAdded=isAdded.toggle();
+      });*/
+    }, child: /*isAdded?Icon(Icons.done):*/"Buy".text.make(),
+    style: ButtonStyle(
+      backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
+      shape: MaterialStatePropertyAll(StadiumBorder())
+    ),);
+  }
+}*/

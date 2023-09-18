@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^5.1.0
   velocity_x: ^4.1.0
   js_interop: ^0.0.1
+  provider:
+  get:
 
 dev_dependencies:
   flutter_test:

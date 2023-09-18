@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'dart:convert';
-import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
 import '../widgets/home_page_widgets.dart';
@@ -51,7 +50,8 @@ class _HomepageState extends State<Homepage> {
             IconButton(onPressed: (){
               _globalKey.currentState?.openDrawer();
             },
-             icon: Icon(Icons.menu)),
+             icon: Icon(Icons.menu),
+             padding: EdgeInsets.only(top: 48,left: 20),),
             Container(
             padding: Vx.m32,
             child: Column(
@@ -61,9 +61,9 @@ class _HomepageState extends State<Homepage> {
                 FutureBuilder(
                   future: loadData(),
                   builder: (context,data){
-                    if(_items.isNotEmpty)
+                    if(_items.isNotEmpty) {
                       return CatalogList(items: _items).py16().expand();
-                    else
+                    } else
                       return CircularProgressIndicator().centered().expand();
                   })
             ]),
