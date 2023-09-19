@@ -18,9 +18,9 @@ class MyCart extends StatelessWidget {
       drawer: const MyDrawer(),
       body: Column(
         children: [
-          const _cartList().p32().expand(),
+          const _CartList().p32().expand(),
           const Divider(),
-          const _cartTotal(),
+          const _CartTotal(),
         ],
       ),
     );
@@ -28,8 +28,8 @@ class MyCart extends StatelessWidget {
 }
 
 
-class _cartTotal extends StatelessWidget {
-  const _cartTotal({super.key});
+class _CartTotal extends StatelessWidget {
+  const _CartTotal();
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +59,21 @@ class _cartTotal extends StatelessWidget {
   }
 }
 
-class _cartList extends StatefulWidget {
-  const _cartList({super.key});
+class _CartList extends StatefulWidget {
+  const _CartList();
 
   @override
-  State<_cartList> createState() => __cartListState();
+  State<_CartList> createState() => __CartListState();
 }
 
-class __cartListState extends State<_cartList> {
+class __CartListState extends State<_CartList> {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<CartData>(context).cart;
+    if(cart.isEmpty){
+      return'Add Something First !'.text.xl3.make().centered();
+    }
+    else{
     return ListView.builder(
       itemCount: cart.length,
       itemBuilder: (context,index)=>ListTile(
@@ -82,6 +86,6 @@ class __cartListState extends State<_cartList> {
           icon: const Icon(Icons.remove_circle_outline),),
           title: cart[index]['name'].toString().text.make(),
       )
-      );
+      );}
   }
 }

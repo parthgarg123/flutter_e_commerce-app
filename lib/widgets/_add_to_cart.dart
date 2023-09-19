@@ -22,7 +22,6 @@ class addToCartState extends State<addToCart> {
     return ElevatedButton(onPressed: (){
       Provider.of<CartData>(context,listen: false).addP(widget.items);
       Provider.of<CartData>(context,listen: false).tot();
-      //final CartData _cart = CartData(); 
       setState(() {
         isAdded=isAdded.toggle();
       });
@@ -31,6 +30,6 @@ class addToCartState extends State<addToCart> {
       backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
       shape: const MaterialStatePropertyAll(StadiumBorder())
     ), 
-    child: isAdded?Icon(Icons.done):"Buy".text.make());
+    child: isAdded?const Icon(Icons.done):const Icon(Icons.add_shopping_cart_rounded));
   }
 }

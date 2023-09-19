@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   bool changeButton = false;
 
   final _formkey = GlobalKey<FormState>();
-  MovetoHome(BuildContext context) async{
+  movetoHome(BuildContext context) async{
     if(_formkey.currentState!.validate()){
     setState(() {
       changeButton=true;
@@ -69,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                           setState(() {});
                         },
                         cursorColor: Colors.black,
-                      ),
+                      ).customTheme(themeData: MyTheme.lightTheme(context)),
                       TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                         cursorColor: Colors.black,
-                        ),
+                        ).customTheme(themeData: MyTheme.lightTheme(context)),
                     ],
                   ),
                 ),
@@ -98,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(changeButton?20:5),
                   child: InkWell(
                    
-                    onTap:() => MovetoHome(context),
+                    onTap:() => movetoHome(context),
                     child: AnimatedContainer(
                       duration: Duration(milliseconds: 300),
                       height: 40,
@@ -111,10 +112,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                /* ElevatedButton(onPressed: (){
-                  Navigator.pushNamed(context, MyRoutes.homeRoute);}, 
-                child: Text('Log-In',style: TextStyle(fontSize: 18),),
-                style: TextButton.styleFrom(minimumSize: Size(120, 40)),) */
               ],
             ),
           ),

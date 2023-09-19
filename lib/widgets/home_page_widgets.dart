@@ -80,34 +80,3 @@ class CatalogItem extends StatelessWidget {
     ).color(context.theme.colorScheme.background).rounded.square(120).make().py16();
 }
 }
-/*
-class _addToCart extends StatefulWidget {
-  final dynamic items;
-  final int index;
-  const _addToCart({
-    Key? key,
-    required this.items, required this.index,
-  }) : super(key: key);
-
-  @override
-  State<_addToCart> createState() =>  _addToCartState();
-}
-
-class _addToCartState extends State<_addToCart> {
-  //bool isAdded = false;
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: (){
-      
-    /*  final CartModel _cart = CartModel(); 
-      _cart.add(widget.items,widget.index);
-      setState(() {
-        isAdded=isAdded.toggle();
-      });*/
-    }, child: /*isAdded?Icon(Icons.done):*/"Buy".text.make(),
-    style: ButtonStyle(
-      backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
-      shape: MaterialStatePropertyAll(StadiumBorder())
-    ),);
-  }
-}*/

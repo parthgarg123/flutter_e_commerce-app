@@ -3,7 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/models/cart.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
@@ -35,6 +37,7 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
+    final int count = Provider.of<CartData>(context).cart.length;
     return Scaffold(
       key: _globalKey,
       drawer: MyDrawer(),
@@ -43,6 +46,8 @@ class _HomepageState extends State<Homepage> {
           onPressed: (){Navigator.pushNamed(context, MyRoutes.cartRoute);},
         backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
         child: Icon(CupertinoIcons.cart),
+      ).badge(color: Vx.red400, size: 25,count: count,
+      textStyle: TextStyle(fontWeight: FontWeight.bold)
       ),
       body: SafeArea(
         child: Stack(
