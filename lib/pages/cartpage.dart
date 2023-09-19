@@ -15,12 +15,12 @@ class MyCart extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: "Cart".text.xl4.make(),
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       body: Column(
         children: [
-          _cartList().p32().expand(),
-          Divider(),
-          _cartTotal(),
+          const _cartList().p32().expand(),
+          const Divider(),
+          const _cartTotal(),
         ],
       ),
     );
@@ -33,7 +33,7 @@ class _cartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    num tot = Provider.of<CartData>(context,listen: false).total();
+    num tot = Provider.of<CartData>(context).total;
     return SizedBox(
       height: 200,
       child: Row(
@@ -46,12 +46,12 @@ class _cartTotal extends StatelessWidget {
             width: 88,
             child: ElevatedButton(
               onPressed: (){ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Center(child: 'Not Yet Supported!'.text.xl.make())));}, 
-            child: "Buy".text.xl2.semiBold.make(),
+                SnackBar(content: Center(child: 'Not Yet Supported!'.text.xl.make())));},
                     style: ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
-                      shape: MaterialStatePropertyAll(StadiumBorder())
-                    ),),
+                      shape: const MaterialStatePropertyAll(StadiumBorder())
+                    ), 
+            child: "Buy".text.xl2.semiBold.make(),),
           )
         ],
       ),
@@ -73,12 +73,13 @@ class __cartListState extends State<_cartList> {
     return ListView.builder(
       itemCount: cart.length,
       itemBuilder: (context,index)=>ListTile(
-        leading: Icon(Icons.done),
+        leading: const Icon(Icons.done),
         trailing: IconButton(
           onPressed: (){
             Provider.of<CartData>(context,listen: false).removeP(cart[index]);
+            Provider.of<CartData>(context,listen: false).tot();
           },
-          icon: Icon(Icons.remove_circle_outline),),
+          icon: const Icon(Icons.remove_circle_outline),),
           title: cart[index]['name'].toString().text.make(),
       )
       );

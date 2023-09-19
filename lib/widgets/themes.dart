@@ -8,9 +8,9 @@ class MyTheme{
         canvasColor: cream,
         colorScheme: ColorScheme(brightness:Brightness.light, primary: Colors.black, onPrimary: darkCream, secondary: Colors.black, onSecondary: Colors.black, error: red,
         onError: red, background: Colors.white, onBackground: Colors.white, surface:yellow, onSurface: darkCream),
-        buttonTheme: ButtonThemeData(buttonColor: Colors.amber),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Colors.amber),
-        appBarTheme: AppBarTheme(
+        buttonTheme: const ButtonThemeData(buttonColor: Colors.amber),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.amber),
+        appBarTheme: const AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
@@ -26,7 +26,7 @@ class MyTheme{
     onError: red, background: cream, onBackground: darkCream, surface:yellow, onSurface: cream),
     buttonTheme: ButtonThemeData(buttonColor: yellow),
     floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: yellow),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       elevation: 0,
       backgroundColor: Colors.black,
       iconTheme: IconThemeData(color: Colors.white),
@@ -34,10 +34,10 @@ class MyTheme{
     primaryTextTheme: GoogleFonts.latoTextTheme());
   
 
-  static Color darkCream = Color.fromARGB(255, 37, 37, 37);
-  static Color red = Color.fromARGB(255,244, 67, 54);
-  static Color blue = Color.fromARGB(255,68, 138, 255);
-  static Color cream = Color.fromARGB(255,237, 237, 233);
+  static Color darkCream = const Color.fromARGB(255, 37, 37, 37);
+  static Color red = const Color.fromARGB(255,244, 67, 54);
+  static Color blue = const Color.fromARGB(255,68, 138, 255);
+  static Color cream = const Color.fromARGB(255,237, 237, 233);
   static Color yellow = Colors.amber;
 
 }

@@ -31,7 +31,7 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
-  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState>  _globalKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
           onPressed: (){Navigator.pushNamed(context, MyRoutes.cartRoute);},
-        child: Icon(CupertinoIcons.cart),
         backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+        child: Icon(CupertinoIcons.cart),
       ),
       body: SafeArea(
         child: Stack(
@@ -63,8 +63,9 @@ class _HomepageState extends State<Homepage> {
                   builder: (context,data){
                     if(_items.isNotEmpty) {
                       return CatalogList(items: _items).py16().expand();
-                    } else
+                    } else {
                       return CircularProgressIndicator().centered().expand();
+                    }
                   })
             ]),
           ),]

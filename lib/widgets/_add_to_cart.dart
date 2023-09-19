@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/cart.dart';
@@ -21,14 +21,16 @@ class addToCartState extends State<addToCart> {
   Widget build(BuildContext context) {
     return ElevatedButton(onPressed: (){
       Provider.of<CartData>(context,listen: false).addP(widget.items);
+      Provider.of<CartData>(context,listen: false).tot();
       //final CartData _cart = CartData(); 
       setState(() {
         isAdded=isAdded.toggle();
       });
-    }, child: isAdded?Icon(Icons.done):"Buy".text.make(),
+    },
     style: ButtonStyle(
       backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
-      shape: MaterialStatePropertyAll(StadiumBorder())
-    ),);
+      shape: const MaterialStatePropertyAll(StadiumBorder())
+    ), 
+    child: isAdded?Icon(Icons.done):"Buy".text.make());
   }
 }

@@ -17,7 +17,7 @@ class CatalogHeader extends StatelessWidget {
             children: [
               'Sasta Amazon'.text.color(context.theme.colorScheme.primary).xl5.bold.make().centered(),
               'Trending'.text.xl2.color(context.theme.colorScheme.primary).make().centered(),
-              Padding(padding: EdgeInsets.only(bottom: 8.0))
+              const Padding(padding: EdgeInsets.only(bottom: 8.0))
           ]);
   }
 }

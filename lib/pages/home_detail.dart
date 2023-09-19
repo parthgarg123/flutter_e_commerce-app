@@ -50,11 +50,11 @@ class HomeDetailPage extends StatelessWidget {
                   children: [
                     "\$${items[index]['price']}".text.bold.xl4.make(),
                     ElevatedButton(onPressed: (){}, 
-                    child: "Buy".text.color(context.theme.colorScheme.onPrimary).semiBold.xl2.make(),
                     style: ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(context.theme.floatingActionButtonTheme.backgroundColor),
-                      shape: MaterialStatePropertyAll(StadiumBorder()),
-                    ),).wh(100, 50)
+                      shape: const MaterialStatePropertyAll(StadiumBorder()),
+                    ),
+                    child: "Buy".text.color(context.theme.colorScheme.onPrimary).semiBold.xl2.make(),).wh(100, 50)
                   ],
                 ).p32(),
       ),
