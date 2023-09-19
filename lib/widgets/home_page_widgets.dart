@@ -15,7 +15,7 @@ class CatalogHeader extends StatelessWidget {
     return  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              'Sasta Amazon'.text.color(context.theme.colorScheme.primary).xl5.bold.make().centered(),
+              'Sasta Amazon'.text.color(context.theme.colorScheme.primary).xl3.bold.make().centered(),
               'Trending'.text.xl2.color(context.theme.colorScheme.primary).make().centered(),
               const Padding(padding: EdgeInsets.only(bottom: 8.0))
           ]);

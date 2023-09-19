@@ -56,6 +56,6 @@ class MyDrawer extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ).wTwoThird(context);
   }
 }

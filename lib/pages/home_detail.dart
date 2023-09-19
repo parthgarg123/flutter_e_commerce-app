@@ -9,6 +9,7 @@ class HomeDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -19,7 +20,7 @@ class HomeDetailPage extends StatelessWidget {
         children: [
           Hero(
             tag: Key(items[index]['id'].toString()),
-            child: Image.network(items[index]['image']).centered()).p12().h32(context),
+            child: Image.network(items[index]['image']).centered()).p2().hOneForth(context),
             Expanded(child: VxArc(
               height: 30.0,
               arcType: VxArcType.convey,
