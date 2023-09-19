@@ -77,7 +77,7 @@ class __CartListState extends State<_CartList> {
     return ListView.builder(
       itemCount: cart.length,
       itemBuilder: (context,index)=>ListTile(
-        leading: const Icon(Icons.done),
+        leading: Image.network(cart[index]['image']).box.p4.make().w16(context),
         trailing: IconButton(
           onPressed: (){
             Provider.of<CartData>(context,listen: false).removeP(cart[index]);
@@ -85,7 +85,7 @@ class __CartListState extends State<_CartList> {
           },
           icon: const Icon(Icons.remove_circle_outline),),
           title: cart[index]['name'].toString().text.make(),
-      )
+      ).py2()
       );}
   }
 }

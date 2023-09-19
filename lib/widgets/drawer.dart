@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -15,14 +16,14 @@ class MyDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             padding: EdgeInsets.zero,
-            child: UserAccountsDrawerHeader(accountName: Text('Parth',
+            child: UserAccountsDrawerHeader(accountName: Text('Username',
               style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
               margin: EdgeInsets.zero,
               decoration: BoxDecoration(color: Color(0xFFFFC107),), 
-              accountEmail: Text('Parthgarg@gmail.com',
+              accountEmail: Text('XXXXXXXXX@gmail.com',
               style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assests/images/useraccount.JPG'),
+                backgroundImage: AssetImage('assests/images/user_icon.png'),
               ),
             ),
           ),
